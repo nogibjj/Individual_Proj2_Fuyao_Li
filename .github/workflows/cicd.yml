@@ -17,16 +17,12 @@ jobs:
           profile: minimal
           components: clippy, rustfmt
           override: true
-    - name: update linux
-      run: sudo apt update 
     - name: Build
       run: make rust_build
     - name: Run
       run: make rust_run
     - name: Test
       run: make rust_test
-    - name: Release
-      run: make rust_release
     - name: Format
       run: make rust_format
     - name: Lint
@@ -35,6 +31,6 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: optimized-binary
-        path: target/release/Individual_Proj2_Fuyao_Li
+        path: target/release/Individual_Proj2_Fuyao_Li.exe
     - name: add rust logs
       run: make generate_and_push

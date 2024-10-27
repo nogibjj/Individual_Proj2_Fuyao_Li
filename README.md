@@ -1,15 +1,21 @@
-## Mini_Project5
+## Individual Project2
 
 Author: Fuyao Li
 
 ### Requirements:
-+ Connect to a SQL database
-+ Perform CRUD operations (create, read, update, and delete)
++ Rust source code: The code should comprehensively understand Rust's syntax and unique features.
++ Use of LLM: In your README, explain how you utilized an LLM in your coding process.
++ SQLite Database: Include a SQLite database and demonstrate CRUD (Create, Read, Update, Delete) operations.
++ Optimized Rust Binary: Include a process that generates an optimized Rust binary as a Gitlab Actions artifact that can be downloaded.
++ README.md: A file that clearly explains what the project does, its dependencies, how to run the program, and how Gitlab Copilot was used.
++ Github/Gitlab Actions: A workflow file that tests, builds, and lints your Rust code.
++ Video Demo: A YouTube link in README.md showing a clear, concise walkthrough and demonstration of your CLI binary.
 
 ### Preparation:
-+ Built virtual environment: `pip install -r requirements.txt`
-+ Extract a dataset from a URL: `extract.py`
-+ Loads the transformed data: `transform_load.py`, load the transformed data into a SQLite database table using Python's sqlite3 module.
++ Init: `cargo init`
++ Build: `cargo build`
++ Run: `cargo run`
++ Test: `cargo test`
 
 ### Sample CRUD Operations:
 + Create

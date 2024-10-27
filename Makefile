@@ -1,5 +1,5 @@
 rust_build:
-	cargo build
+	cargo build --release
 
 rust_run:
 	cargo run
@@ -7,16 +7,13 @@ rust_run:
 rust_test:
 	cargo test
 
-rust_release:
-	cargo build --release
-
 rust_format:
 	cargo fmt
 
 rust_lint:
 	cargo clippy -- -D warnings
 
-all: rust_build rust_run rust_test rust_release rust_format rust_lint
+all: rust_build rust_run rust_test rust_format rust_lint
 
 
 # Generate and push changes to GitHub
