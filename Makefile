@@ -1,25 +1,32 @@
-install:
-	pip install --upgrade pip &&\
-		pip install -r requirements.txt
+rust_build:
+	cargo build
 
-test:
-	python -m pytest -vv --cov=main --cov=mylib test_*.py
+rust_run:
+	cargo run
 
-format:	
-	black *.py 
+rust_test:
+	cargo test
 
-lint:
-	#disable comment to test speed
-	#pylint --disable=R,C --ignore-patterns=test_.*?py *.py mylib/*.py
-	#ruff linting is 10-100X faster than pylint
-	ruff check *.py mylib/*.py
+rust_release:
+	cargo build --release
 
-container-lint:
-	docker run --rm -i hadolint/hadolint < Dockerfile
+rust_format:
+	cargo fmt
 
-refactor: format lint
+rust_lint:
+	cargo clippy -- -D warnings
 
-deploy:
-	#deploy goes here
-		
-all: install lint test format deploy
+all: rust_build rust_run rust_test rust_release rust_format rust_lint
+
+
+# Generate and push changes to GitHub
+generate_and_push:
+	@if [ -n "$$(git status --porcelain)" ]; then \
+		git config --local user.email "action@github.com"; \
+		git config --local user.name "GitHub Action"; \
+		git add .; \
+		git commit -m "Add query log"; \
+		git push; \
+	else \
+		echo "No changes to commit. Skipping commit and push."; \
+	fi

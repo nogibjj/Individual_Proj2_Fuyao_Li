@@ -1,30 +1,72 @@
 ```sql
-SELECT * FROM CityDB
+INSERT INTO CityDB (date, location, city, state, lat, lng) VALUES ('2022-10-25', 'Durham South', 'Durham', 'NC', 34.05, -118.25);
 ```
 
 ```sql
-INSERT INTO ServeTimesDB VALUES 
-        (6/27/2018, Durham South, Durham, NC, 35.99, 78.9);
-```
-
-```sql
-INSERT INTO ServeTimesDB VALUES 
-        (10/22/2018, Charlotte North, Charlotte, NC, 35.22, 80.84);
-```
-
-```sql
-UPDATE ServeTimesDB SET 
-        date=8/29/2018, location=Durham South,
-        city=Durham, state=NC, 
-        lat=35.99, lng=78.9
-        WHERE id=107;
-```
-
-```sql
-DELETE FROM CityDB WHERE id=99;
+DELETE FROM CityDB WHERE id=1;
 ```
 
 ```sql
 SELECT * FROM CityDB
+```
+
+```sql
+INSERT INTO CityDB (date, location, city, state, lat, lng) VALUES ('2022-10-25', 'Durham South', 'Durham', 'NC', 34.05, -118.25);
+```
+
+```sql
+INSERT INTO CityDB (date, location, city, state, lat, lng) VALUES ('2022-10-25', 'Durham South', 'Durham', 'NC', 34.05, -118.25);
+```
+
+```sql
+UPDATE CityDB SET date='2022-10-26', location='Durham North', city='Durham', state='NC', lat=34.05, lng=-118.25 WHERE id=1;
+```
+
+```sql
+INSERT INTO CityDB (date, location, city, state, lat, lng) VALUES ('2022-10-25', 'Durham South', 'Durham', 'NC', 34.05, -118.25);
+```
+
+```sql
+SELECT * FROM CityDB
+```
+
+```sql
+INSERT INTO CityDB (date, location, city, state, lat, lng) VALUES ('2022-10-25', 'Durham South', 'Durham', 'NC', 34.05, -118.25);
+```
+
+```sql
+UPDATE CityDB SET date='2022-10-26', location='Durham North', city='Durham', state='NC', lat=34.05, lng=-118.25 WHERE id=1;
+```
+
+```sql
+INSERT INTO CityDB (date, location, city, state, lat, lng) VALUES ('2022-10-25', 'Durham South', 'Durham', 'NC', 34.05, -118.25);
+```
+
+```sql
+DELETE FROM CityDB WHERE id=1;
+```
+
+```sql
+INSERT INTO CityDB (date, location, city, state, lat, lng) VALUES ('2022-10-25', 'Durham South', 'Durham', 'NC', 34.05, -118.25);
+```
+
+```sql
+DELETE FROM CityDB WHERE id=1;
+```
+
+```sql
+SELECT * FROM CityDB
+```
+
+```sql
+INSERT INTO CityDB (date, location, city, state, lat, lng) VALUES ('2022-10-25', 'Durham South', 'Durham', 'NC', 34.05, -118.25);
+```
+
+```sql
+UPDATE CityDB SET date='2022-10-26', location='Durham North', city='Durham', state='NC', lat=34.05, lng=-118.25 WHERE id=1;
+```
+
+```sql
+INSERT INTO CityDB (date, location, city, state, lat, lng) VALUES ('2022-10-25', 'Durham South', 'Durham', 'NC', 34.05, -118.25);
 ```
 
