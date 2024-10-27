@@ -1,4 +1,4 @@
-use Individual_Proj2_Fuyao_Li::{extract, load_data, create_subject, read_data, update_subject, delete_subject};
+use individual_proj2_fuyao_li::{extract, load_data, create_subject, read_data, update_subject, delete_subject};
 
 fn main() {
     // Example usage of extract
