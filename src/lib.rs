@@ -76,7 +76,9 @@ fn add_operation(query: &str) -> Result<(), Box<dyn Error>> {
 }
 
 // Function to read data from database
-pub fn read_data() -> Result<Vec<(i32, String, String, String, String, f64, f64)>, Box<dyn Error>> {
+type DataRow = (i32, String, String, String, String, f64, f64);
+
+pub fn read_data() -> Result<Vec<DataRow>, Box<dyn Error>> {
     let conn = Connection::open("CityDB.db")?;
     let mut stmt = conn.prepare("SELECT * FROM CityDB")?;
     let data = stmt
