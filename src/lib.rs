@@ -1,10 +1,10 @@
-use rusqlite::{params, Connection, Result};
-use std::fs::{self, File, OpenOptions};
-use std::path::Path;
 use csv::ReaderBuilder;
 use reqwest::blocking::get;
+use rusqlite::{params, Connection, Result};
 use std::error::Error;
+use std::fs::{self, File, OpenOptions};
 use std::io::Write;
+use std::path::Path;
 
 const LOG_FILE: &str = "db_log.md";
 
@@ -45,7 +45,10 @@ pub fn load_data(dataset: &str) -> Result<(), Box<dyn Error>> {
     )?;
 
     let file = File::open(dataset)?;
-    let mut rdr = ReaderBuilder::new().delimiter(b',').has_headers(true).from_reader(file);
+    let mut rdr = ReaderBuilder::new()
+        .delimiter(b',')
+        .has_headers(true)
+        .from_reader(file);
 
     // Start a transaction
     let tx = conn.transaction()?;
@@ -70,7 +73,10 @@ pub fn load_data(dataset: &str) -> Result<(), Box<dyn Error>> {
 
 // Function to add SQL operation to log file
 fn add_operation(query: &str) -> Result<(), Box<dyn Error>> {
-    let mut file = OpenOptions::new().append(true).create(true).open(LOG_FILE)?;
+    let mut file = OpenOptions::new()
+        .append(true)
+        .create(true)
+        .open(LOG_FILE)?;
     writeln!(file, "```sql\n{}\n```\n", query)?;
     Ok(())
 }
@@ -100,7 +106,14 @@ pub fn read_data() -> Result<Vec<DataRow>, Box<dyn Error>> {
 }
 
 // Function to insert data into the database
-pub fn create_subject(date: &str, location: &str, city: &str, state: &str, lat: f64, lng: f64) -> Result<(), Box<dyn Error>> {
+pub fn create_subject(
+    date: &str,
+    location: &str,
+    city: &str,
+    state: &str,
+    lat: f64,
+    lng: f64,
+) -> Result<(), Box<dyn Error>> {
     let conn = Connection::open("CityDB.db")?;
     conn.execute(
         "INSERT INTO CityDB (date, location, city, state, lat, lng) VALUES (?1, ?2, ?3, ?4, ?5, ?6)",
@@ -115,7 +128,15 @@ pub fn create_subject(date: &str, location: &str, city: &str, state: &str, lat: 
 }
 
 // Function to update a subject in the database
-pub fn update_subject(record_id: i32, date: &str, location: &str, city: &str, state: &str, lat: f64, lng: f64) -> Result<(), Box<dyn Error>> {
+pub fn update_subject(
+    record_id: i32,
+    date: &str,
+    location: &str,
+    city: &str,
+    state: &str,
+    lat: f64,
+    lng: f64,
+) -> Result<(), Box<dyn Error>> {
     let conn = Connection::open("CityDB.db")?;
     conn.execute(
         "UPDATE CityDB SET date = ?1, location = ?2, city = ?3, state = ?4, lat = ?5, lng = ?6 WHERE id = ?7",

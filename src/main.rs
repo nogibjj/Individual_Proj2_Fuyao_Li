@@ -1,4 +1,6 @@
-use individual_proj2_fuyao_li::{extract, load_data, create_subject, read_data, update_subject, delete_subject};
+use individual_proj2_fuyao_li::{
+    create_subject, delete_subject, extract, load_data, read_data, update_subject,
+};
 
 fn main() {
     // Example usage of extract
@@ -25,7 +27,15 @@ fn main() {
     }
 
     // Update an existing subject
-    if let Err(e) = update_subject(107, "10/26/2020", "Durham South", "Durham", "NC", 34.05, -118.25) {
+    if let Err(e) = update_subject(
+        107,
+        "10/26/2020",
+        "Durham South",
+        "Durham",
+        "NC",
+        34.05,
+        -118.25,
+    ) {
         eprintln!("Error in update_subject: {}", e);
     }
 
@@ -34,4 +44,3 @@ fn main() {
         eprintln!("Error in delete_subject: {}", e);
     }
 }
-
