@@ -28,7 +28,7 @@ jobs:
     - name: Lint
       run: make rust_lint
     - name: Archive Binary
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: optimized-binary
         path: target/release/Individual_Proj2_Fuyao_Li.exe
