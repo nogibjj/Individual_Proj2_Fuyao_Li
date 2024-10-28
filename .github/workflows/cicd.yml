@@ -31,6 +31,6 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: optimized-binary
-        path: target/release/Individual_Proj2_Fuyao_Li.exe
+        path: target/release/individual_proj2_fuyao_li
     - name: add rust logs
       run: make generate_and_push
