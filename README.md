@@ -1,3 +1,4 @@
+[![rust_CICD](https://github.com/nogibjj/Individual_Proj2_Fuyao_Li/actions/workflows/cicd.yml/badge.svg)](https://github.com/nogibjj/Individual_Proj2_Fuyao_Li/actions/workflows/cicd.yml)
 ## Individual Project2
 
 Author: Fuyao Li
@@ -13,31 +14,43 @@ Author: Fuyao Li
 
 ### Preparation:
 + Init: `cargo init`
-+ Build: `cargo build`
++ Build: `cargo build --release`
 + Run: `cargo run`
 + Test: `cargo test`
 
+### `individual_proj2_fuyao_li` Structure  
+```plaintext
+individual_proj2_fuyao_li
+├── Cargo.toml
+├── src
+│   ├── lib.rs
+│   └── main.rs
+└── tests
+    └── integration_tests.rs
+```
+
 ### Sample CRUD Operations:
 + Create
-    ``` python 
-    create_query1 = ("6/27/2018", "Durham South", "Durham", "NC", 35.99, 78.90)
-    create_subject(create_query1)
+    ``` rust 
+    create_subject("10/25/2022", "Durham South", "Durham", "NC", 34.05, -118.25)
     ```
 + Read
-    ``` python
+    ``` rust
     read_data()
     ```
 + Update
-    ``` python 
-    update_query = (107, "8/29/2018", "Durham South", "Durham", "NC", 35.99, 78.90)
-    update_subject(update_query)
+    ``` rust 
+    update_subject(107, "10/26/2020", "Durham South", "Durham", "NC", 34.05, -118.25)
     ```
 + Delete
-    ``` python
-    delete_subject(99)
+    ``` rust
+    delete_subject(1)
     ```
+
 ### Result:
 All CRUD Operations are shown in `db_log.md`.
 
 ### References:
 https://github.com/nogibjj/sqlite-lab
+### Data resource:
+https://github.com/fivethirtyeight/data/blob/master/presidential-campaign-trail/trump.csv
