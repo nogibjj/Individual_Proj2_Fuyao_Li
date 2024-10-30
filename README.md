@@ -50,6 +50,54 @@ individual_proj2_fuyao_li
 ### Result:
 All CRUD Operations are shown in `db_log.md`.
 
+### Github Copilot Usage:
+GitHub Copilot can assist in generating functions by suggesting code snippets and completions based on the comments and code context provided. I used Github Copilot to generate the test function of this function:
+
+> Original function
+```rust
+// Function to read data from database
+type DataRow = (i32, String, String, String, String, f64, f64);
+
+pub fn read_data() -> Result<Vec<DataRow>, Box<dyn Error>> {
+    let conn = Connection::open("CityDB.db")?;
+    let mut stmt = conn.prepare("SELECT * FROM CityDB")?;
+    let data = stmt
+        .query_map([], |row| {
+            Ok((
+                row.get(0)?,
+                row.get(1)?,
+                row.get(2)?,
+                row.get(3)?,
+                row.get(4)?,
+                row.get(5)?,
+                row.get(6)?,
+            ))
+        })?
+        .collect::<Result<Vec<_>, _>>()?;
+
+    add_operation("SELECT * FROM CityDB")?;
+    Ok(data)
+}
+```
+
+> Test function 
+```rust
+#[test]
+fn test_read_data() {
+    let result = read_data();
+    assert!(result.is_ok(), "Read data should work without errors");
+
+    let data = result.unwrap();
+    assert!(
+        !data.is_empty(),
+        "Data should not be empty after reading from database"
+    );
+}
+```
+
+### Use of LLM:
+The use of an LLM (Language Learning Model) like GitHub Copilot is specified for assisting in code generation. Specifically, Copilot helps by providing test functions of CRUD functions for SQLite. This model enhances efficiency with quick prototype generation based on function descriptions.
+
 ### References:
 https://github.com/nogibjj/sqlite-lab
 ### Data resource:
