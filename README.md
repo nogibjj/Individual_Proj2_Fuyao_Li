@@ -98,6 +98,9 @@ fn test_read_data() {
 ### Use of LLM:
 The use of an LLM (Language Learning Model) like GitHub Copilot is specified for assisting in code generation. Specifically, Copilot helps by providing test functions of CRUD functions for SQLite. This model enhances efficiency with quick prototype generation based on function descriptions.
 
+### Link of vedio
+https://youtu.be/k9SGEq9PlPU
+
 ### References:
 https://github.com/nogibjj/sqlite-lab
 ### Data resource:
